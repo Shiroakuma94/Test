@@ -10,6 +10,8 @@ struct comp {
 
   std::string name;
 
+  bool isempty;
+
   int age;
 
   float hp;
