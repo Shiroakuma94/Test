@@ -2,65 +2,55 @@
 #include <string>
 #include "class.h"
 
-void printvalue(int &);
+  void print ( int *) ;
+
+
 template<typename T>
-void printvalue(T &); 
+struct vec {
 
-struct comp {
+ T x;
 
-  std::string name;
+ T y;
 
-  bool isempty;
+};
 
-  int age;
+template<typename T>
+std::ostream& operator<< ( std::ostream & os ,const vec<T> & v ){
 
-  float hp;
-  comp * next;
- };
+os << v.x << "," << v.y<<" ";
 
+return os;
+
+}
 
 int main () {
 
- comp * mycomp = new comp;
- 
- 
- mycomp->next = new comp;
- 
- mycomp =  mycomp->next;
- 
- 
- mycomp->name = "Alessio";
- 
- 
- mycomp->age = 30;
- 
- 
- mycomp->hp = 0.99f;
- 
- 
- printvalue(mycomp->name);
+  
+vec<int> v;
 
 
+  
+ v.x = 5;
+ v.y = 7;
+  
+  
+  
+ std::cout<< v << "\n"; 
+  
+  
+  return 0;
 
-return 0;
+}
+
+void print ( int* a) {
+
+
+  
+  
+   std::cout<< "vector value is : "<<*a<<"\n";
+  
 
 }
 
 
-
-void printvalue(int & a) {
-
-  std::cout << a << "\n";
-
-
-
-}
-
-template<typename T> 
-void printvalue( T & a){
-
-
-  std::cout << a << "\n"; 
-
-}
 
